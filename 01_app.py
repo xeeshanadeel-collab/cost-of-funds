@@ -41,7 +41,7 @@ st.sidebar.success(f"Connected: cost_of_funds.db")
 
 # ------------------------------------------------------------------ step 1-3: upload, extract, store
 st.header("1️⃣ Upload statement(s) of account")
-files = st.file_uploader("PDF statement(s) - text-based PDFs only (no scans)", type="pdf", accept_multiple_files=True)
+files = st.file_uploader("PDF statement", type="pdf", accept_multiple_files=False)
 
 for f in files or []:
     with st.expander(f"📄 {f.name}", expanded=True):
