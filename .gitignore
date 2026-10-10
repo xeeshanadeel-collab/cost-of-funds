@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+
+# Microsoft Access files (replaced by SQLite)
+*.accdb
+*.laccdb
+*.mdb
+
+# OS
+.DS_Store
+Thumbs.db
