@@ -164,7 +164,6 @@ if "result" in st.session_state:
     st.dataframe(show.style.format({"Average Balance": "{:,.2f}", "Cost of Funds": "{:,.2f}",
                                     "Rate %": "{:.4f}", "Days": "{:,.0f}"}, na_rep=""),
                  width="stretch", hide_index=True)
-    st.bar_chart(summ.set_index("Year")["Cost of Funds"])
 
     with st.expander("Detailed period-wise schedule", expanded=False):
         st.dataframe(sched.style.format({"Balance": "{:,.2f}", "Cost of Funds": "{:,.2f}", "Rate %": "{:.4f}",
@@ -183,4 +182,4 @@ if "result" in st.session_state:
         params.to_excel(xw, sheet_name="Parameters", index=False)
     excel_bytes = buf.getvalue()
     st.download_button("⬇️ Download Excel", excel_bytes, f"cost_of_funds_{res['account']}.xlsx",
-                       "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+                      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
