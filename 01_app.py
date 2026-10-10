@@ -35,12 +35,19 @@ def check_login():
             st.subheader("🔐 User Authentication")
             
             with st.form("login_form"):
-                username = st.text_input("Username")
+                # Clean input to remove accidental leading/trailing spaces
+                username = st.text_input("Username").strip().lower()
                 password = st.text_input("Password", type="password")
                 submit_btn = st.form_submit_button("Login", use_container_width=True)
                 
                 if submit_btn:
-                    if username in USERS and USERS[username] == make_hash(password):
+                    # Fetch passwords safely from Streamlit secrets
+                    passwords = st.secrets.get("passwords", {})
+                    
+                    # Convert secret keys to lowercase as well for matching
+                    passwords_lower = {k.lower(): v for k, v in passwords.items()}
+                    
+                    if username in passwords_lower and passwords_lower[username] == make_hash(password):
                         st.session_state["authenticated"] = True
                         st.session_state["username"] = username
                         st.rerun()
