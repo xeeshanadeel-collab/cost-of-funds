@@ -67,6 +67,7 @@ if check_login():
         st.write(f"👤 Logged in as: **{st.session_state.get('username')}**")
         if st.button("🚪 Logout", use_container_width=True):
             st.session_state["authenticated"] = False
+            st.session_state.pop("username", None)
             st.rerun()
             
         st.divider()
