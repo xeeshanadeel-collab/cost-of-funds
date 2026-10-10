@@ -9,9 +9,8 @@ import streamlit as st
 import cof_core as core
 
 st.set_page_config(page_title="Cost of Funds Calculator", page_icon="🏦", layout="wide")
-st.title("🏦 Cost of Funds Calculator - Non-Performing Loans")
-st.caption("Upload statement of account → store (Name, Date, Balance) → set default / end dates and yearly rates → "
-           "cost of funds = Σ (balance × rate × days ÷ day-count basis).")
+st.title("🏦 Cost of Funds Calculator")
+
 
 # ------------------------------------------------------------------ sidebar: settings
 with st.sidebar:
